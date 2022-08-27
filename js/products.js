@@ -19,3 +19,28 @@ const products = [
     soldOut: true,
   },
 ];
+
+const productContainer = document.querySelector(".container");
+
+let html = "";
+
+for (let i = 0; i < products.length; i++) {
+  let displayPrice = "Unavailable";
+
+  if (products[i].price) {
+    displayPrice = products[i].price;
+  }
+
+  let decoration = "green";
+
+  if (products[i].soldOut) {
+    decoration = "red";
+  }
+
+  html += `<div class="product">
+            <h3 style="color:${decoration}">${products[i].name}</h3>
+            <p>Price: ${displayPrice}</p>
+             </div>`;
+}
+
+productContainer.innerHTML = html;
